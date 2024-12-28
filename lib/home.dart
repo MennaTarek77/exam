@@ -18,16 +18,18 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body:  Column(children: [
-       Expanded(child: tabs[selectedIndex]),
-     ],),
-
-
+      body: Column(
+        children: [
+          Expanded(child: tabs[selectedIndex]),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
-        showUnselectedLabels: false,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         currentIndex: selectedIndex,
+        selectedLabelStyle: const TextStyle(color: Color(0xff4838D1)),
+        unselectedLabelStyle: const TextStyle(color: Color(0xff6A6A8B)),
         selectedItemColor: const Color(0xff4838D1),
         unselectedItemColor: const Color(0xff6A6A8B),
         onTap: (value) {
@@ -37,20 +39,17 @@ class _HomeState extends State<Home> {
         items: const [
           BottomNavigationBarItem(
             icon: ImageIcon(
-              AssetImage('assets/icons/home.png'),size: 40,
+              AssetImage('assets/icons/home.png'),
+              size: 40,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/search.png'),size: 40
-            ),
+            icon: ImageIcon(AssetImage('assets/icons/search.png'), size: 40),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/document.png'),size: 40
-            ),
+            icon: ImageIcon(AssetImage('assets/icons/document.png'), size: 40),
             label: 'Library',
           )
         ],
@@ -58,7 +57,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  List<Widget> tabs=[
+  List<Widget> tabs = [
     const HomeTab(),
     const SearchTab(),
     const LibraryTab(),
