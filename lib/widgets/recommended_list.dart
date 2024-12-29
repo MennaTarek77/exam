@@ -35,30 +35,22 @@ class RecommendedList extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  width: 200,
-                  // margin: EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-
-                      // color: const Color(0xffF5F5FA)
-                      ),
-                  child: const Image(
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/Image Placeholder 2.png"),
-                  )),
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  width: 200,
-                  decoration: const BoxDecoration(color: Color(0xffF5F5FA)),
-                  child: const Image(
-                      fit: BoxFit.cover,
-                      image:
-                          AssetImage("assets/images/Image Placeholder 1.png"))),
+              movieCover("Image Placeholder 2"),
+              movieCover("Image Placeholder 1"),
             ],
           ),
         ),
       ],
     );
+  }
+
+  Widget movieCover(String imageName) {
+    return Container(
+        margin: const EdgeInsets.all(10),
+        width: 200,
+        decoration: const BoxDecoration(color: Color(0xffF5F5FA)),
+        child: Image(
+            fit: BoxFit.cover,
+            image: AssetImage("assets/images/$imageName.png")));
   }
 }
